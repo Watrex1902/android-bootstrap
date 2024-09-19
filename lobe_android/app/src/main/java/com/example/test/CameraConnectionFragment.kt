@@ -365,8 +365,6 @@ class CameraConnectionFragment private constructor(
             }
         } catch (e: Exception) {
             LOGGER.e(e, "Exception!")
-        } catch (e: NullPointerException) {
-            throw Exception("camera access error")
         }
         cameraConnectionCallback.onPreviewSizeChosen(previewSize, sensorOrientation!!)
     }
@@ -387,8 +385,6 @@ class CameraConnectionFragment private constructor(
             manager.openCamera(cameraId!!, stateCallback, backgroundHandler)   //temp
         } catch (e: Exception) {
             LOGGER.e(e, "Exception!")
-        } catch (e: InterruptedException) {
-            throw RuntimeException("Interrupted while trying to lock camera opening.", e)
         }
     }
 
